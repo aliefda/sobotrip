@@ -72,7 +72,7 @@
                     <p>{{ $destination->description_2 }}</p>
                 </div>
                 <div class="rating-stars">
-                    <form action="{{ route('reviews.store') }}" method="POST">
+                    <form id="reviewForm" action="{{ route('reviews.store') }}" method="POST">
                         @csrf
                         <input type="hidden" id="rating" name="rating" value="0">
                         <input type="hidden" name="destination_id" value="{{ $destination->id }}">
@@ -149,6 +149,14 @@
             }
         });
     }
+
+    document.getElementById('reviewForm').addEventListener('submit', function(event) {
+        const rating = document.getElementById('rating').value;
+        if (rating == 0) {
+            event.preventDefault();
+            alert('Tolong, masukkan rating terlebih dahulu!');
+        }
+    });
 </script>
 </body>
 </html>

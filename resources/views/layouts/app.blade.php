@@ -114,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item">
             @csrf
-            <a href="{{route ('logout')}}" method="POST" class="nav-link">
+            <a href="{{route ('logout')}}" method="GET" class="nav-link">
               <i class="nav-icon fas fa-arrow-left"></i>
               <p>Logout</p>
             </a>

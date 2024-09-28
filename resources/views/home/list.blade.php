@@ -70,14 +70,19 @@
         <div class="row" id="destination-list wow fadeIn" data-wow-delay="0.1s">
             @foreach($destinations as $destination)
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm" onclick="location.href='/destinations/{{$destination->id}}'">
+                    <div class="card h-100 shadow-sm">
                         <img src="/bootstrap/img/{{$destination->image }}" class="card-img-top" alt="Image">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $destination->title}}</h5>
+                            <h5 class="card-title">{{ $destination->title }}</h5>
                             <p class="card-text">{{ $destination->title_1 }}</p>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer d-flex justify-content-between align-items-center">
                             <a href="/destinations/{{$destination->id}}" class="btn btn-primary btn-custom">Detail</a>
+                            <div class="text-end">
+                                <i class="bi bi-star-fill text-warning"></i> {{ round($destination->averageRating(), 2) }} / 5
+                                <br>
+                                <small>Total Reviews: {{ $destination->totalReviews() }}</small>
+                            </div>
                         </div>
                     </div>
                 </div>

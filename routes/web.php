@@ -42,6 +42,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
